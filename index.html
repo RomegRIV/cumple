@@ -1,175 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
+    <title>Login</title>
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #141414;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://static.vecteezy.com/system/resources/previews/006/962/346/non_2x/cinema-mockup-with-blank-white-screen-template-background-vector.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: #fff;
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #222;
-        }
-
-        header img {
-            height: 40px;
-        }
-
-        header button {
-            background-color: #e50914;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .video-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .video-card {
-            background-color: #333;
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            max-width: 400px;
+            padding: 4rem;
             border-radius: 8px;
-            overflow: hidden;
-            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-container h1 {
             text-align: center;
-            transition: transform 0.3s;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
-        .video-card:hover {
-            transform: scale(1.05);
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
-        .video-card img {
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .form-group input {
             width: 100%;
-            height: 170px;
-            object-fit: cover;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 2px solid #333;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.3s ease;
         }
 
-        .video-card h3 {
-            margin: 10px 0;
-            font-size: 18px;
+        .form-group input:focus {
+            border-color: #e50914;
         }
 
-        .video-card button {
-            background-color: #e50914;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .video-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        .btn {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .video-modal iframe {
-            width: 80%;
-            height: 80%;
-        }
-
-        .video-modal button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            padding: 0.75rem;
+            font-size: 1.1rem;
             background-color: #e50914;
-            color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
+            color: #fff;
             cursor: pointer;
+            border-radius: 6px;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #f6121d;
+        }
+
+        .error {
+            color: #e50914;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            visibility: hidden;
+        }
+
+        .error.visible {
+            visibility: visible;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            color: #fff;
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
-
-<header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg" alt="Logo">
-    <button onclick="logout()">Salir</button>
-</header>
-
-<div class="video-container">
-    <div class="video-card">
-        <img src="https://pics.filmaffinity.com/Alicia_en_el_paais_de_las_maravillas-108542060-large.jpg" alt="Video Thumbnail">
-        <h3>Película 1</h3>
-        <button onclick="playVideo('https://drive.google.com/file/d/1iJHF-8zc36AGz4xt8i1Hobn-H-kMyPpu/preview')">Ver ahora</button>
+    <div class="login-container">
+        <h1>Inicia sesión</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" placeholder="Ingresa tu correo" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <button type="submit" class="btn">Iniciar sesión</button>
+            <p class="error" id="errorMessage">Correo electrónico o contraseña incorrectos.</p>
+        </form>
     </div>
-    
+
     <script>
-        function playVideo(url) {
-            // Abrir el video en una nueva ventana o pestaña
-            window.open(url, '_blank');
-        }
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (email === 'fer@man' && password === 'mateoBB') {
+                alert('Bienvenido, Fer!');
+                window.location.href = 'reproductor.html';
+            } else {
+                errorMessage.classList.add('visible');
+            }
+        });
     </script>
-    
-    <div class="video-card">
-        <img src="https://via.placeholder.com/300x170" alt="Video Thumbnail">
-        <h3>Película 2</h3>
-        <button onclick="playVideo('https://drive.google.com/uc?export=download&id=TU_ID_DE_VIDEO')">Ver ahora</button>
-    </div>
-    <div class="video-card">
-        <img src="https://via.placeholder.com/300x170" alt="Video Thumbnail">
-        <h3>Película 3</h3>
-        <button onclick="playVideo('https://drive.google.com/uc?export=download&id=TU_ID_DE_VIDEO')">Ver ahora</button>
-    </div>
-    <div class="video-card">
-        <img src="https://via.placeholder.com/300x170" alt="Video Thumbnail">
-        <h3>Película 4</h3>
-        <button onclick="playVideo('https://drive.google.com/uc?export=download&id=TU_ID_DE_VIDEO')">Ver ahora</button>
-    </div>
-</div>
-
-<div class="video-modal" id="videoModal">
-    <button onclick="closeModal()">Cerrar</button>
-    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<script>
-    function playVideo(url) {
-        const modal = document.getElementById('videoModal');
-        const frame = document.getElementById('videoFrame');
-        frame.src = url;
-        modal.style.display = 'flex';
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('videoModal');
-        const frame = document.getElementById('videoFrame');
-        frame.src = '';
-        modal.style.display = 'none';
-    }
-
-    function logout() {
-        alert('Cerrando sesión...');
-        // Aquí puedes agregar funcionalidad para redirigir al login.
-    }
-</script>
-
 </body>
+
 </html>
