@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(75, 73, 73, 0.8); /* Fondo con opacidad */
+            background: rgba(75, 73, 73, 0.8);
             color: white;
             padding: 10px 20px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -132,10 +133,11 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Galería de Videos</h1>
-            <button onclick="window.location.href='index.html'"> <i class="fas fa-sign-out-alt"></i> 🔒 Cerrar Sesión</button>
+        <button onclick="window.location.href='index.html'">🔒 Cerrar Sesión</button>
     </header>
     <div class="video-gallery">
         <div class="video-card">
@@ -143,7 +145,13 @@
             <h3>Alicia en el País de las Maravillas</h3>
             <button onclick="showVideoModal('https://drive.google.com/file/d/1iJHF-8zc36AGz4xt8i1Hobn-H-kMyPpu/preview')">Ver ahora</button>
         </div>
-        
+
+        <div class="video-card">
+            <img src="https://image.tmdb.org/t/p/original/enTsjngbsWuf1JB6YoYOOd67GdE.jpg" alt="Alicia Atrabes del Espejo">
+            <h3>Alicia Atrabes del Espejo</h3>
+            <button onclick="showVideoModal('https://drive.google.com/file/d/189MIsKYYFBLUBSsiGlXnD5kkaam_Qi2-/preview')">Ver ahora</button>
+        </div>
+
         <div class="video-card">
             <img src="https://static.cinepolis.com/resources/mx/movies/posters/414x603/46123-684523-20240430031929.jpg" alt="Garfield Fuera de Casa">
             <h3>Garfield Fuera de Casa</h3>
@@ -155,20 +163,35 @@
             <button onclick="showVideoModal('https://drive.google.com/file/d/1Qvg_KgeQi7tFVYglSXXS3XjgEzQVSkep/preview')">Ver ahora</button>
         </div>
 
-                <div class="video-card">
+        <div class="video-card">
             <img src="https://image.tmdb.org/t/p/original/4jeFXQYytChdZYE9JYO7Un87IlW.jpg" alt="Coraline">
             <h3>Coraline y la puerta secreta</h3>
             <button onclick="showVideoModal('https://drive.google.com/file/d/1LboEKZ114j2X9rV3NrwLRW5ANk4fRoDq/preview')">Ver ahora</button>
         </div>
-    </div>
 
-  
+        <div class="video-card">
+            <img src="https://pics.filmaffinity.com/La_novia_cadaaver-800527812-large.jpg" alt="El Cadaver de la Novia">
+            <h3>El Cadaver de la Novia </h3>
+            <button onclick="showVideoModal('https://drive.google.com/file/d/1z-Wp6AwmESigGPQWkwmApLhMdGsVvJpA/preview')">Ver ahora</button>
+        </div>
+
+        <div class="video-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BNzFmMDczZjktMjk2Mi00MzBkLWI1OWEtOWFjMjY5ZmE1Zjg1XkEyXkFqcGc@._V1_.jpg" alt="Rosita Fresita y la bestia del pantano">
+            <h3>Rosita Fresita y la bestia del pantano </h3>
+            <button onclick="showVideoModal('https://drive.google.com/file/d/13hwY66WIESPA0j9bi4Skgv6MKzzql2ic/preview')">Ver ahora</button>
+        </div>
+
+
+        <!-- Agregar más tarjetas de video según sea necesario -->
+
+
+    </div>
 
     <!-- Modal -->
     <div id="videoModal">
         <div>
-            <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
-            <button onclick="closeVideoModal()">×</button>
+            <iframe id="videoFrame"></iframe>
+            <button onclick="closeVideoModal()">X</button>
         </div>
     </div>
 
@@ -188,4 +211,5 @@
         }
     </script>
 </body>
+
 </html>
