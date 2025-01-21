@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -16,15 +16,18 @@
             justify-content: center;
             align-items: center;
             color: #fff;
+            padding: 1rem;
+            box-sizing: border-box;
         }
 
         .login-container {
             background-color: rgba(0, 0, 0, 0.7);
             width: 100%;
             max-width: 400px;
-            padding: 4rem;
+            padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
         }
 
         .login-container h1 {
@@ -53,6 +56,7 @@
             border-radius: 6px;
             outline: none;
             transition: border-color 0.3s ease;
+            box-sizing: border-box;
         }
 
         .form-group input:focus {
@@ -101,6 +105,50 @@
         .forgot-password:hover {
             color: #fff;
             text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .login-container {
+                padding: 1.5rem;
+            }
+
+            .login-container h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-group input {
+                padding: 0.6rem;
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                padding: 0.6rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 1rem;
+            }
+
+            .login-container h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-group input {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
