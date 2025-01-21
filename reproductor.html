@@ -143,6 +143,7 @@
             <h3>Alicia en el País de las Maravillas</h3>
             <button onclick="showVideoModal('https://drive.google.com/file/d/1iJHF-8zc36AGz4xt8i1Hobn-H-kMyPpu/preview')">Ver ahora</button>
         </div>
+        
         <div class="video-card">
             <img src="https://static.cinepolis.com/resources/mx/movies/posters/414x603/46123-684523-20240430031929.jpg" alt="Garfield Fuera de Casa">
             <h3>Garfield Fuera de Casa</h3>
@@ -153,37 +154,23 @@
             <h3>Betlejuis 2</h3>
             <button onclick="showVideoModal('https://drive.google.com/file/d/1Qvg_KgeQi7tFVYglSXXS3XjgEzQVSkep/preview')">Ver ahora</button>
         </div>
-        <div class="video-card">
+
+                <div class="video-card">
             <img src="https://image.tmdb.org/t/p/original/4jeFXQYytChdZYE9JYO7Un87IlW.jpg" alt="Coraline">
             <h3>Coraline y la puerta secreta</h3>
             <button onclick="showVideoModal('https://drive.google.com/file/d/1LboEKZ114j2X9rV3NrwLRW5ANk4fRoDq/preview')">Ver ahora</button>
         </div>
     </div>
 
-    <div class="video-gallery">
-
-        <div class="video-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz-No_8gjEcxqGaB0YfE5cAD3n0EOjdsDOow&s" alt="El cadaver de la novia">
-            <h3>Alicia atrabez del espejo</h3>
-            <button onclick="showVideoModal('https://drive.google.com/file/d/189MIsKYYFBLUBSsiGlXnD5kkaam_Qi2-/preview')">Ver ahora</button>
-        </div>
-
-        <div class="video-card">
-            <img src="https://static.wikia.nocookie.net/doblaje/images/2/2b/El_cadaver_de_la_novia_poster8.jpg/revision/latest?cb=20200726011336&path-prefix=es" alt="El cadaver de la novia">
-            <h3>El cadaver de la novia </h3>
-            <button onclick="showVideoModal('https://drive.google.com/file/d/1z-Wp6AwmESigGPQWkwmApLhMdGsVvJpA/preview')">Ver ahora</button>
-        </div>
-
-        <div class="video-card">
-            <img src="https://m.media-amazon.com/images/M/MV5BNzFmMDczZjktMjk2Mi00MzBkLWI1OWEtOWFjMjY5ZmE1Zjg1XkEyXkFqcGc@._V1_.jpg" alt="El cadaver de la novia">
-            <h3>rosita fresita  y la bestia del pantano </h3>
-            <button onclick="showVideoModal('https://drive.google.com/file/d/13hwY66WIESPA0j9bi4Skgv6MKzzql2ic/preview')">Ver ahora</button>
-        </div>
-    </div>
+  
 
     <!-- Modal -->
     <div id="videoModal">
-
+        <div>
+            <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
+            <button onclick="closeVideoModal()">×</button>
+        </div>
+    </div>
 
     <script>
         function showVideoModal(videoUrl) {
