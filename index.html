@@ -162,7 +162,7 @@
           </div>
           <div class="right">
             <div class="timer" id="timer1">20s</div>
-            <button onclick="startTimer(20, 'timer1', 'badge1')">Comenzar</button>
+            <button onclick="startTimer(20, 'timer1', 'badge1', this)">Comenzar</button>
           </div>
         </div>
 
@@ -175,7 +175,7 @@
           </div>
           <div class="right">
             <div class="timer" id="timer2">40s</div>
-            <button onclick="startTimer(40, 'timer2', 'badge2')">Comenzar</button>
+            <button onclick="startTimer(40, 'timer2', 'badge2', this)">Comenzar</button>
           </div>
         </div>
 
@@ -188,7 +188,7 @@
           </div>
           <div class="right">
             <div class="timer" id="timer3">60s</div>
-            <button onclick="startTimer(60, 'timer3', 'badge3')">Comenzar</button>
+            <button onclick="startTimer(60, 'timer3', 'badge3', this)">Comenzar</button>
           </div>
         </div>
 
@@ -201,7 +201,7 @@
           </div>
           <div class="right">
             <div class="timer" id="timer4">180s</div>
-            <button onclick="startTimer(180, 'timer4', 'badge4')">Comenzar</button>
+            <button onclick="startTimer(180, 'timer4', 'badge4', this)">Comenzar</button>
           </div>
         </div>
 
@@ -214,7 +214,7 @@
           </div>
           <div class="right">
             <div class="timer" id="timer5">600s</div>
-            <button onclick="startTimer(600, 'timer5', 'badge5')">Comenzar</button>
+            <button onclick="startTimer(600, 'timer5', 'badge5', this)">Comenzar</button>
           </div>
         </div>
 
@@ -223,11 +223,14 @@
   </div>
 
   <script>
-    function startTimer(duration, elementId, badgeId) {
+    function startTimer(duration, elementId, badgeId, button) {
       let timer = duration;
       const display = document.getElementById(elementId);
       const badge = document.getElementById(badgeId);
+
       badge.classList.remove('show');
+      button.style.display = 'none'; // Oculta el botón
+
       display.textContent = formatTime(timer);
 
       const interval = setInterval(() => {
@@ -237,6 +240,7 @@
           clearInterval(interval);
           display.textContent = "¡Listo!";
           badge.classList.add('show');
+          button.style.display = 'inline-block'; // Vuelve a mostrar el botón
         }
       }, 1000);
     }
