@@ -1,191 +1,254 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('https://static.vecteezy.com/system/resources/previews/006/962/346/non_2x/cinema-mockup-with-blank-white-screen-template-background-vector.jpg') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            padding: 1rem;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rasca y Gana</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .login-container {
-            background-color: rgba(0, 0, 0, 0.7);
-            width: 100%;
-            max-width: 400px;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            box-sizing: border-box;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .login-container h1 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
+    .outer-frame {
+      background-color: #ffe9d1;
+      border: 3px solid #d9bfa5;
+      padding: 12px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+    .card {
+      background-color: #f47c6d;
+      border: 6px solid #ea564c;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 360px;
+      width: 100%;
+    }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            color: #ccc;
-        }
+    .inner-frame {
+      border: 2px solid #d4574a;
+      border-radius: 14px;
+      padding: 20px;
+      background-color: #f47c6d;
+    }
 
-        .form-group input {
-            width: 100%;
-            padding: 0.75rem;
-            font-size: 1rem;
-            border: 2px solid #333;
-            border-radius: 6px;
-            outline: none;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
-        }
+    .title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #fbc02d;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px #8b1e1e, -1px -1px 2px #8b1e1e;
+    }
 
-        .form-group input:focus {
-            border-color: #e50914;
-        }
+    .item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 12px;
+    }
 
-        .btn {
-            width: 100%;
-            padding: 0.75rem;
-            font-size: 1.1rem;
-            background-color: #e50914;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 6px;
-            margin-top: 1rem;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-        }
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
 
-        .btn:hover {
-            background-color: #f6121d;
-        }
+    .icon-img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(18%) sepia(76%) saturate(4472%) hue-rotate(349deg) brightness(80%) contrast(107%);
+    }
 
-        .error {
-            color: #e50914;
-            margin-top: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-            visibility: hidden;
-        }
+    .text {
+      color: #5a1f18;
+      font-size: 15px;
+      line-height: 1.3;
+    }
 
-        .error.visible {
-            visibility: visible;
-        }
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-        .forgot-password {
-            display: block;
-            text-align: center;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            color: #ccc;
-            text-decoration: none;
-        }
+    .timer {
+      font-weight: bold;
+      min-width: 48px;
+      text-align: right;
+      font-size: 14px;
+      color: #000;
+    }
 
-        .forgot-password:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
+    button {
+      padding: 5px 8px;
+      background-color: #d84315;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 0.5rem;
-            }
+    button:hover {
+      background-color: #bf360c;
+    }
 
-            .login-container {
-                padding: 1.5rem;
-            }
+    .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: #d32f2f;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 12px;
+      display: none;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    }
 
-            .login-container h1 {
-                font-size: 1.8rem;
-            }
+    .badge.show {
+      display: inline-block;
+    }
 
-            .form-group input {
-                padding: 0.6rem;
-                font-size: 0.95rem;
-            }
+    @media (max-width: 400px) {
+      .item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-            .btn {
-                padding: 0.6rem;
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .login-container {
-                padding: 1rem;
-            }
-
-            .login-container h1 {
-                font-size: 1.5rem;
-            }
-
-            .form-group input {
-                padding: 0.5rem;
-                font-size: 0.9rem;
-            }
-
-            .btn {
-                padding: 0.5rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+      .right {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 8px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="login-container">
-        <h1>Inicia sesión</h1>
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" placeholder="Ingresa tu correo" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
-            </div>
-            <button type="submit" class="btn">Iniciar sesión</button>
-            <p class="error" id="errorMessage">Correo electrónico o contraseña incorrectos.</p>
-        </form>
+  <div class="outer-frame">
+    <div class="card">
+      <div class="inner-frame">
+        <div class="title">RASCA Y GANA</div>
+
+        <!-- ITEM 1 -->
+        <div class="item">
+          <span class="badge" id="badge1">¡Continúa rascando!</span>
+          <div class="left">
+            <img src="img/icono1.png" alt="Icono 1" class="icon-img" />
+            <div class="text">Espera 20 segundos.</div>
+          </div>
+          <div class="right">
+            <div class="timer" id="timer1">20s</div>
+            <button onclick="startTimer(20, 'timer1', 'badge1')">Comenzar</button>
+          </div>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="item">
+          <span class="badge" id="badge2">¡Continúa rascando!</span>
+          <div class="left">
+            <img src="img/icono2.png" alt="Icono 2" class="icon-img" />
+            <div class="text">Espera 40 segundos.</div>
+          </div>
+          <div class="right">
+            <div class="timer" id="timer2">40s</div>
+            <button onclick="startTimer(40, 'timer2', 'badge2')">Comenzar</button>
+          </div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="item">
+          <span class="badge" id="badge3">¡Continúa rascando!</span>
+          <div class="left">
+            <img src="img/icono3.png" alt="Icono 3" class="icon-img" />
+            <div class="text">Espera 60 segundos.</div>
+          </div>
+          <div class="right">
+            <div class="timer" id="timer3">60s</div>
+            <button onclick="startTimer(60, 'timer3', 'badge3')">Comenzar</button>
+          </div>
+        </div>
+
+        <!-- ITEM 4 -->
+        <div class="item">
+          <span class="badge" id="badge4">¡Continúa rascando!</span>
+          <div class="left">
+            <img src="img/icono4.png" alt="Icono 4" class="icon-img" />
+            <div class="text">Espera 3 minutos.</div>
+          </div>
+          <div class="right">
+            <div class="timer" id="timer4">180s</div>
+            <button onclick="startTimer(180, 'timer4', 'badge4')">Comenzar</button>
+          </div>
+        </div>
+
+        <!-- ITEM 5 -->
+        <div class="item">
+          <span class="badge" id="badge5">¡Continúa rascando!</span>
+          <div class="left">
+            <img src="img/icono5.png" alt="Icono 5" class="icon-img" />
+            <div class="text">Espera 10 minutos.</div>
+          </div>
+          <div class="right">
+            <div class="timer" id="timer5">600s</div>
+            <button onclick="startTimer(600, 'timer5', 'badge5')">Comenzar</button>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+  <script>
+    function startTimer(duration, elementId, badgeId) {
+      let timer = duration;
+      const display = document.getElementById(elementId);
+      const badge = document.getElementById(badgeId);
+      badge.classList.remove('show');
+      display.textContent = formatTime(timer);
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
+      const interval = setInterval(() => {
+        timer--;
+        display.textContent = formatTime(timer);
+        if (timer <= 0) {
+          clearInterval(interval);
+          display.textContent = "¡Listo!";
+          badge.classList.add('show');
+        }
+      }, 1000);
+    }
 
-            if (email === 'fer@man' && password === 'mateoBB') {
-                alert('Bienvenido, Fer!');
-                window.location.href = 'reproductor.html';
-            } else {
-                errorMessage.classList.add('visible');
-            }
-        });
-    </script>
+    function formatTime(seconds) {
+      if (seconds >= 60) {
+        const min = Math.floor(seconds / 60);
+        const sec = seconds % 60;
+        return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+      }
+      return `${seconds}s`;
+    }
+  </script>
 </body>
-
 </html>
