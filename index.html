@@ -1,276 +1,234 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Rasca y Gana</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiniela de compras · Kermés Informática</title>
 <style>
-  :root {
-    --bg-primary: #f47c6d;
-    --bg-secondary: #ffe9d1;
-    --border-primary: #ea564c;
-    --border-secondary: #d9bfa5;
-    --text-primary: #5a1f18;
-    --highlight: #fbc02d;
-    --btn-color: #d84315;
-    --btn-hover: #bf360c;
-    --badge-color: #d32f2f;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: Arial, sans-serif;
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') center/cover no-repeat;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-  }
-
-  .outer-frame {
-    background-color: var(--bg-secondary);
-    border: 3px solid var(--border-secondary);
-    padding: 1rem;
-    border-radius: 16px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.25);
-    max-width: 420px;
-    width: 100%;
-  }
-
-  .card {
-    background-color: var(--bg-primary);
-    border: 4px solid var(--border-primary);
-    border-radius: 20px;
-    padding: 1.5rem;
-  }
-
-  .title {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--highlight);
-    margin-bottom: 1.5rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    letter-spacing: 1px;
-  }
-
-  .item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(255,255,255,0.2);
-    padding: 0.8rem;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    position: relative;
-    transition: transform 0.2s ease;
-  }
-
-  .item:hover {
-    transform: scale(1.02);
-  }
-
-  .left {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    flex: 1;
-  }
-
-  .icon-img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(18%) sepia(76%) saturate(4472%) hue-rotate(349deg) brightness(80%) contrast(107%);
-  }
-
-  .text {
-    color: var(--text-primary);
-    font-size: 0.95rem;
-  }
-
-  .right {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .timer {
-    font-weight: bold;
-    min-width: 50px;
-    text-align: right;
-    font-size: 0.9rem;
-    color: #000;
-  }
-
-  button {
-    padding: 0.4rem 0.7rem;
-    background-color: var(--btn-color);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: background-color 0.2s ease;
-  }
-
-  button:hover {
-    background-color: var(--btn-hover);
-  }
-
-  /* Badge con animación */
-  .badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: var(--badge-color);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding: 0.25rem 0.5rem;
-    border-radius: 12px;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-    opacity: 0;
-    transform: scale(0.5);
-    pointer-events: none;
-  }
-
-  .badge.show {
-    animation: popIn 0.5s ease forwards;
-  }
-
-  @keyframes popIn {
-    0% { opacity: 0; transform: scale(0.5) rotate(-15deg); }
-    50% { opacity: 1; transform: scale(1.2) rotate(5deg); }
-    100% { opacity: 1; transform: scale(1) rotate(0deg); }
-  }
-
-  @media (max-width: 450px) {
-    .item {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .right {
-      width: 100%;
-      justify-content: space-between;
-      margin-top: 0.5rem;
-    }
-  }
+:root{--bg:#f4f7fb;--card:#fff;--ink:#182238;--muted:#667085;--line:#e4e9f2;--primary:#5b5ce2;--primary2:#4546c7;--green:#12805c;--orange:#f59e0b;--shadow:0 12px 34px rgba(27,39,76,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:linear-gradient(120deg,#25265f,#5b5ce2 70%,#8d70f4);color:white;padding:30px 20px 72px}
+.hero{max-width:1150px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.75rem;font-weight:800;opacity:.8}.hero h1{font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;margin:10px 0}.hero p{margin:0;opacity:.88;max-width:650px}.hero-icon{font-size:4.3rem;background:#ffffff1c;border:1px solid #ffffff30;border-radius:24px;padding:18px}
+main{max-width:1150px;margin:-42px auto 40px;padding:0 18px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px}.stat,.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.stat{padding:18px}.stat span{display:block;color:var(--muted);font-size:.82rem;font-weight:650}.stat strong{display:block;font-size:1.7rem;margin-top:7px;letter-spacing:-.04em}.layout{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,1.35fr);gap:18px;align-items:start}.panel{padding:22px;margin-bottom:18px}.panel h2{font-size:1.12rem;margin:0 0 5px}.sub{font-size:.88rem;color:var(--muted);margin:0 0 18px}.field{margin-bottom:14px}.field label{display:block;font-size:.85rem;font-weight:750;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;font:inherit;border:1px solid #d8deea;background:#fff;border-radius:11px;padding:12px;color:var(--ink);outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px #5b5ce21b}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.photo-drop{border:2px dashed #c8ccef;background:#f8f8ff;border-radius:14px;padding:17px;text-align:center}.photo-drop input{max-width:100%;font-size:.82rem}.photo-drop p{font-size:.8rem;color:var(--muted);margin:8px 0 0}.camera-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}#cameraVideo{display:none;width:100%;max-height:280px;object-fit:contain;border-radius:10px;margin-top:12px;background:#151827}.preview{display:none;width:100%;max-height:210px;object-fit:contain;border-radius:10px;margin-top:12px;background:#eef0f7}.btn{border:0;border-radius:11px;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;transition:.15s}.btn:hover{transform:translateY(-1px)}.primary{background:var(--primary);color:white;width:100%}.primary:hover{background:var(--primary2)}.secondary{background:#eef0ff;color:#4142b7}.danger{background:#fff0f0;color:#b42318}.small{padding:8px 10px;font-size:.8rem}.hint{color:var(--muted);font-size:.78rem;line-height:1.45;margin-top:10px}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:16px}.product-chip{border:1px solid var(--line);border-radius:12px;padding:11px 9px;background:#fff;min-width:0}.product-chip b{display:block;font-size:.86rem}.product-chip span{display:block;font-size:.78rem;color:var(--muted);margin-top:3px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.search{max-width:230px}.search input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:570px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);font-size:.87rem;vertical-align:middle}th{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}td strong{display:block}.muted{color:var(--muted);font-size:.78rem}.thumb{width:54px;height:46px;object-fit:cover;border-radius:8px;background:#edf0f6;cursor:pointer}.badge{display:inline-block;border-radius:99px;padding:4px 8px;background:#e9f8f1;color:#08734e;font-size:.73rem;font-weight:800}.empty{text-align:center;padding:28px 12px;color:var(--muted)}.leader-list{display:grid;gap:10px}.leader{display:grid;grid-template-columns:35px 1fr auto;gap:10px;align-items:center;padding:11px;background:#f8f9fc;border-radius:12px}.rank{width:32px;height:32px;border-radius:10px;background:#e9eaff;color:#4c4dc9;display:grid;place-items:center;font-weight:900}.leader-name{font-weight:800}.leader-detail{font-size:.78rem;color:var(--muted);margin-top:2px}.money{font-weight:900;white-space:nowrap}.bar{height:6px;background:#e7e9f4;border-radius:20px;margin-top:7px;overflow:hidden}.bar span{height:100%;display:block;background:linear-gradient(90deg,#5b5ce2,#a17af7);border-radius:20px}.actions{display:flex;gap:8px;flex-wrap:wrap}.footer-note{text-align:center;color:var(--muted);font-size:.8rem;padding:6px 12px 24px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#182238;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:5;display:none;max-width:90vw}.modal{position:fixed;inset:0;background:#101828c9;display:none;place-items:center;padding:20px;z-index:10}.modal img{max-width:min(900px,95vw);max-height:85vh;object-fit:contain;border-radius:12px}.modal button{position:absolute;top:18px;right:18px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-icon{font-size:3rem;padding:12px}}
+@media(max-width:480px){header{padding:24px 16px 65px}.hero-icon{display:none}main{padding:0 11px}.panel{padding:16px}.two{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{padding:14px}.stat strong{font-size:1.45rem}.section-head{align-items:flex-start;flex-direction:column}.search{max-width:none;width:100%}}
 </style>
 </head>
 <body>
-  <div class="outer-frame">
-    <div class="card">
-      <div class="title">RASCA Y GANA</div>
+<header><div class="hero">
+  <div><div class="eyebrow">Kermés escolar · Informática</div><h1>Quiniela de compras</h1><p>Registra las compras con autorización del docente y descubre cuánto gastó cada alumno.</p></div>
+  <div class="hero-icon" aria-hidden="true">🎟️</div>
+</div></header>
+<main>
+  <section class="stats" aria-label="Resumen">
+    <div class="stat"><span>Gasto registrado</span><strong id="totalGasto">$0</strong></div>
+    <div class="stat"><span>Compras registradas</span><strong id="totalCompras">0</strong></div>
+    <div class="stat"><span>Alumnos participantes</span><strong id="totalAlumnos">0</strong></div>
+    <div class="stat"><span>Registros autorizados</span><strong id="totalFotos">0</strong></div>
+  </section>
 
-      <div class="item" data-time="20">
-        <span class="badge">¡Continúa rascando!</span>
-        <div class="left">
-          <img src="img/icono1.png" alt="Icono 1" class="icon-img" />
-          <div class="text">Espera 20 segundos.</div>
-        </div>
-        <div class="right">
-          <div class="timer">20s</div>
-          <button>Comenzar</button>
-        </div>
-      </div>
+  <div class="layout">
+    <div>
+      <section class="panel">
+        <h2>📸 Registrar una compra</h2>
+        <p class="sub">Cada registro requiere el código de autorización del docente responsable.</p>
+        <form id="purchaseForm">
+          <div class="field"><label for="student">Nombre y apellido del alumno *</label><input id="student" maxlength="90" placeholder="Ej. Ana López" required></div>
+          <div class="two">
+            <div class="field"><label for="group">Grupo *</label><input id="group" maxlength="30" placeholder="Ej. 2° B" required></div>
+            <div class="field"><label for="product">¿Qué compró? *</label><select id="product" required><option value="">Selecciona producto</option></select></div>
+          </div>
+          <div class="field"><label>Lista de precios</label><div class="products" id="priceList"></div></div>
+          <div class="field"><label for="teacherCode">Código de autorización del docente *</label><input id="teacherCode" type="password" maxlength="30" placeholder="Ingresa el código que te dio el docente" autocomplete="off" required><p class="hint">El docente de la actividad te proporcionará el código. Sin un código válido no se guardará la compra.</p></div>
+          <div class="field"><label for="notes">Nota (opcional)</label><textarea id="notes" rows="2" maxlength="180" placeholder="Ej. Compró dos boletos..."></textarea></div>
+          <button class="btn primary" type="submit">＋ Guardar compra autorizada</button>
+          <p class="hint">Los datos se guardan en este navegador mediante IndexedDB; no se envían a internet. Evita borrar los datos del navegador si quieres conservarlos.</p>
+        </form>
+      </section>
+      <section class="panel">
+        <h2>🏅 Tabla de la quiniela</h2><p class="sub">Clasificación por gasto acumulado de cada alumno.</p>
+        <div class="leader-list" id="leaderboard"><div class="empty">Todavía no hay compras registradas.</div></div>
+      </section>
+    </div>
 
-      <div class="item" data-time="40">
-        <span class="badge">¡Continúa rascando!</span>
-        <div class="left">
-          <img src="img/icono2.png" alt="Icono 2" class="icon-img" />
-          <div class="text">Espera 40 segundos.</div>
-        </div>
-        <div class="right">
-          <div class="timer">40s</div>
-          <button>Comenzar</button>
-        </div>
-      </div>
-
-      <div class="item" data-time="60">
-        <span class="badge">¡Continúa rascando!</span>
-        <div class="left">
-          <img src="img/icono3.png" alt="Icono 3" class="icon-img" />
-          <div class="text">Espera 60 segundos.</div>
-        </div>
-        <div class="right">
-          <div class="timer">60s</div>
-          <button>Comenzar</button>
-        </div>
-      </div>
-
-      <div class="item" data-time="180">
-        <span class="badge">¡Continúa rascando!</span>
-        <div class="left">
-          <img src="img/icono4.png" alt="Icono 4" class="icon-img" />
-          <div class="text">Espera 3 minutos.</div>
-        </div>
-        <div class="right">
-          <div class="timer">3:00</div>
-          <button>Comenzar</button>
-        </div>
-      </div>
-
-      <div class="item" data-time="600">
-        <span class="badge">¡Continúa rascando!</span>
-        <div class="left">
-          <img src="img/icono5.png" alt="Icono 5" class="icon-img" />
-          <div class="text">Espera 10 minutos.</div>
-        </div>
-        <div class="right">
-          <div class="timer">10:00</div>
-          <button>Comenzar</button>
-        </div>
-      </div>
-
+    <div>
+      <section class="panel">
+        <div class="section-head"><div><h2>🧾 Compras registradas</h2><p class="sub" style="margin:5px 0 0">Consulta los registros autorizados y elimina entradas si es necesario.</p></div><div class="search"><input id="search" type="search" placeholder="Buscar alumno o producto…"></div></div>
+        <div class="table-wrap"><table><thead><tr><th>Alumno</th><th>Compra / docente</th><th>Precio</th><th></th></tr></thead><tbody id="purchaseRows"></tbody></table></div>
+        <div class="empty" id="emptyPurchases">Aún no has registrado compras.</div>
+      </section>
+      <section class="panel">
+        <h2>📊 Productos más comprados</h2><p class="sub">Conteo por producto, basado en los registros.</p>
+        <div id="productStats" class="leader-list"><div class="empty">Los datos aparecerán cuando registres compras.</div></div>
+      </section>
+      <section class="panel">
+        <h2>🛡️ Respaldo de los datos</h2><p class="sub">Descarga un archivo de respaldo o recupera uno que hayas exportado anteriormente.</p>
+        <div class="actions"><button class="btn secondary" id="exportBtn" type="button">⬇ Exportar respaldo</button><label class="btn secondary" for="importFile" style="cursor:pointer">⬆ Importar respaldo</label><input id="importFile" type="file" accept="application/json,.json" hidden></div>
+        <p class="hint">El respaldo incluye los registros. Guárdalo en un lugar seguro. Importar un respaldo reemplazará los datos actuales.</p>
+        <div style="margin-top:14px"><button class="btn danger small" id="clearBtn" type="button">Borrar todos los registros</button></div>
+      </section>
     </div>
   </div>
+</main>
+<div class="footer-note">Quiniela de compras · Kermés de Informática · Datos guardados localmente</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-  document.addEventListener('click', e => {
-    if (e.target.tagName === 'BUTTON') {
-      const item = e.target.closest('.item');
-      const duration = parseInt(item.dataset.time, 10);
-      const timerDisplay = item.querySelector('.timer');
-      const badge = item.querySelector('.badge');
-      let remaining = duration;
-
-      // Ocultar botón al iniciar
-      e.target.style.display = 'none';
-      badge.classList.remove('show');
-      timerDisplay.textContent = formatTime(remaining);
-
-      const countdown = setInterval(() => {
-        remaining--;
-        timerDisplay.textContent = formatTime(remaining);
-        if (remaining <= 0) {
-          clearInterval(countdown);
-          timerDisplay.textContent = "¡Listo!";
-          badge.classList.add('show');
-
-          // Mostrar botón otra vez después de la animación
-          setTimeout(() => {
-            e.target.style.display = 'inline-block';
-          }, 800);
-        }
-      }, 1000);
-    }
-  });
-
-  function formatTime(seconds) {
-    if (seconds >= 60) {
-      const min = Math.floor(seconds / 60);
-      const sec = seconds % 60;
-      return `${min}:${sec < 10 ? '0' : ''}${sec}`;
-    }
-    return `${seconds}s`;
+(() => {
+  'use strict';
+  const PRODUCTS = [
+    {id:'poster', name:'Póster', teacher:'Profe Molina', price:20},
+    {id:'toro', name:'Toro', teacher:'Profe Molina', price:20},
+    {id:'crepa', name:'Crepa', teacher:'Profe Molina', price:30},
+    {id:'brincolines', name:'Brincolines', teacher:'Profe Karla', price:20},
+    {id:'registro-civil', name:'Registro civil', teacher:'Profe Xóchitl', price:20},
+    {id:'cabina-fotografica', name:'Cabina fotográfica', teacher:'Profe Augusto', price:30}
+  ];
+  const STORAGE_KEY = 'kermes_informatica_compras_v1';
+  // Códigos iniciales para la actividad. Cámbialos antes de compartir la página si necesitas códigos privados.
+  const TEACHER_CODES = {
+    'MOLINA-4821': 'Profe Molina',
+    'KARLA-7354': 'Profe Karla',
+    'XOCHITL-6193': 'Profe Xóchitl',
+    'AUGUSTO-2685': 'Profe Augusto'
+  };
+  const DB_NAME = 'KermesInformaticaDB';
+  const DB_VERSION = 1;
+  let db = null;
+  let purchases = [];
+  const $ = id => document.getElementById(id);
+  const money = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:2}).format(n);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.style.display='none',3200)}
+  function openDatabase(){
+    return new Promise((resolve,reject)=>{
+      if(!('indexedDB' in window)){reject(new Error('Este navegador no permite almacenamiento local avanzado.'));return;}
+      const request=indexedDB.open(DB_NAME,DB_VERSION);
+      request.onupgradeneeded=()=>{
+        const database=request.result;
+        if(!database.objectStoreNames.contains('purchases')) database.createObjectStore('purchases',{keyPath:'id'});
+      };
+      request.onsuccess=()=>{db=request.result;db.onversionchange=()=>db.close();resolve(db);};
+      request.onerror=()=>reject(request.error||new Error('No se pudo abrir la base de datos.'));
+      request.onblocked=()=>reject(new Error('Cierra otras pestañas de esta página y vuelve a intentarlo.'));
+    });
   }
+  function dbGetAll(){
+    return new Promise((resolve,reject)=>{
+      const tx=db.transaction('purchases','readonly'),req=tx.objectStore('purchases').getAll();
+      req.onsuccess=()=>resolve(req.result||[]);
+      req.onerror=()=>reject(req.error||new Error('No se pudieron leer las compras.'));
+    });
+  }
+  function dbReplaceAll(items){
+    return new Promise((resolve,reject)=>{
+      const tx=db.transaction('purchases','readwrite'),store=tx.objectStore('purchases');
+      store.clear();
+      for(const item of items) store.put(item);
+      tx.oncomplete=()=>resolve(true);
+      tx.onerror=()=>reject(tx.error||new Error('No se pudieron guardar los cambios.'));
+      tx.onabort=()=>reject(tx.error||new Error('Se canceló el guardado.'));
+    });
+  }
+  async function load(){
+    try{
+      await openDatabase();
+      purchases=await dbGetAll();
+      purchases.sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));
+      render();
+    }catch(e){
+      purchases=[];
+      toast('No se pudo activar el guardado: '+(e.message||'revisa el navegador'));
+    }
+  }
+  async function save(){
+    try{
+      if(!db) await openDatabase();
+      await dbReplaceAll(purchases);
+      return true;
+    }catch(e){
+      toast('No se guardó. '+(e.message||'Revisa el espacio disponible del navegador.'));
+      return false;
+    }
+  }
+  function productById(id){return PRODUCTS.find(p=>p.id===id)}
+  function initProducts(){
+    $('product').innerHTML='<option value="">Selecciona producto</option>'+PRODUCTS.map(p=>`<option value="${p.id}">${esc(p.name)} · ${money(p.price)}</option>`).join('');
+    $('priceList').innerHTML=PRODUCTS.map(p=>`<div class="product-chip"><b>${esc(p.name)}</b><span>${esc(p.teacher)}</span><span>${money(p.price)}</span></div>`).join('');
+  }
+  $('purchaseForm').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const student=$('student').value.trim(), group=$('group').value.trim(), product=productById($('product').value);
+    const code=$('teacherCode').value.trim().toUpperCase();
+    const authorizedTeacher=TEACHER_CODES[code];
+    if(!student||!group||!product){toast('Completa el nombre, grupo y producto.');return}
+    if(!authorizedTeacher){toast('Código incorrecto. Solicita el código al docente responsable.');$('teacherCode').focus();return}
+    const record={id:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8),student,group,productId:product.id,productName:product.name,teacher:product.teacher,authorizedBy:authorizedTeacher,price:product.price,notes:$('notes').value.trim(),createdAt:new Date().toISOString()};
+    purchases.unshift(record);
+    const submitButton=e.submitter;
+    if(submitButton){submitButton.disabled=true;submitButton.textContent='Guardando…';}
+    const saved=await save();
+    if(submitButton){submitButton.disabled=false;submitButton.textContent='＋ Guardar compra autorizada';}
+    if(saved){
+      render();$('product').value='';$('teacherCode').value='';$('notes').value='';
+      toast('Compra autorizada y guardada. ¡Listo!');
+    } else {purchases.shift();}
+  });
+  function render(){
+    const total=purchases.reduce((s,p)=>s+Number(p.price||0),0);
+    const students=new Set(purchases.map(p=>(p.student||'').trim().toLocaleLowerCase('es-MX')+'|'+(p.group||'').trim().toLocaleLowerCase('es-MX')));
+    $('totalGasto').textContent=money(total);$('totalCompras').textContent=purchases.length;
+    $('totalAlumnos').textContent=students.size;$('totalFotos').textContent=purchases.length;
+    renderRows();renderLeaders();renderProductStats();
+  }
+  function renderRows(){
+    const query=$('search').value.trim().toLocaleLowerCase('es-MX');
+    const filtered=purchases.filter(p=>[p.student,p.group,p.productName,p.teacher].join(' ').toLocaleLowerCase('es-MX').includes(query));
+    $('purchaseRows').innerHTML=filtered.map(p=>`<tr>
+      <td><strong>${esc(p.student)}</strong><span class="muted">${esc(p.group)}</span></td>
+      <td>${esc(p.productName)}<div class="muted">${esc(p.teacher||'')}</div><div class="muted">Autorizó: ${esc(p.authorizedBy||'Docente')}</div>${p.notes?`<div class="muted">${esc(p.notes)}</div>`:''}</td>
+      <td><strong>${money(Number(p.price)||0)}</strong></td>
+      <td><button class="btn danger small" data-delete="${p.id}" type="button" aria-label="Eliminar compra">Eliminar</button></td>
+    </tr>`).join('');
+    $('emptyPurchases').style.display=filtered.length?'none':'block';
+    $('emptyPurchases').textContent=query?'No se encontraron compras con esa búsqueda.':'Aún no has registrado compras.';
+  }
+  function renderLeaders(){
+    const map=new Map();
+    purchases.forEach(p=>{const key=(p.student||'').trim().toLocaleLowerCase('es-MX')+'|'+(p.group||'').trim().toLocaleLowerCase('es-MX');if(!map.has(key))map.set(key,{name:p.student,group:p.group,total:0,count:0});const x=map.get(key);x.total+=Number(p.price)||0;x.count++});
+    const list=[...map.values()].sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name,'es'));
+    const max=list[0]?.total||1;
+    $('leaderboard').innerHTML=list.length?list.map((s,i)=>`<div class="leader"><div class="rank">${i+1}</div><div><div class="leader-name">${esc(s.name)}</div><div class="leader-detail">Grupo ${esc(s.group)} · ${s.count} compra(s)</div><div class="bar"><span style="width:${Math.max(4,s.total/max*100)}%"></span></div></div><div class="money">${money(s.total)}</div></div>`).join(''):'<div class="empty">Todavía no hay compras registradas.</div>';
+  }
+  function renderProductStats(){
+    const stats=PRODUCTS.map(p=>({...p,count:purchases.filter(x=>x.productId===p.id).length,spent:purchases.filter(x=>x.productId===p.id).reduce((s,x)=>s+(Number(x.price)||0),0)})).sort((a,b)=>b.count-a.count||a.name.localeCompare(b.name,'es'));
+    const max=Math.max(1,...stats.map(x=>x.count));
+    $('productStats').innerHTML=stats.map(p=>`<div class="leader"><div class="rank">🛍️</div><div><div class="leader-name">${esc(p.name)}</div><div class="leader-detail">${p.count} compra(s) · ${esc(p.teacher)}</div><div class="bar"><span style="width:${p.count?Math.max(4,p.count/max*100):0}%"></span></div></div><div class="money">${money(p.spent)}</div></div>`).join('');
+  }
+  $('search').addEventListener('input',renderRows);
+  $('purchaseRows').addEventListener('click',e=>{
+    const btn=e.target.closest('[data-delete]');
+    if(btn){const p=purchases.find(x=>x.id===btn.dataset.delete);if(p&&confirm(`¿Eliminar la compra de ${p.student} (${p.productName})?`)){const old=purchases;purchases=purchases.filter(x=>x.id!==p.id);save().then(ok=>{if(ok){render();toast('Compra eliminada.')}else purchases=old;})}}
+  });
+  $('exportBtn').addEventListener('click',()=>{
+    const blob=new Blob([JSON.stringify({app:'Quiniela Kermés Informática',version:1,exportedAt:new Date().toISOString(),purchases},null,2)],{type:'application/json'});
+    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='respaldo-quiniela-kermes.json';a.click();URL.revokeObjectURL(url);toast('Respaldo preparado para descargar.');
+  });
+  $('importFile').addEventListener('change',async e=>{
+    const file=e.target.files?.[0];if(!file)return;
+    try{
+      const data=JSON.parse(await file.text()), incoming=Array.isArray(data)?data:data.purchases;
+      if(!Array.isArray(incoming)||!incoming.every(p=>p&&typeof p.student==='string'&&typeof p.productName==='string'&&typeof p.price==='number'))throw new Error('El archivo no tiene el formato esperado.');
+      if(!confirm('Importar reemplazará todos los registros actuales. ¿Deseas continuar?'))return;
+      const old=purchases;purchases=incoming;const ok=await save();if(ok){render();toast('Respaldo importado correctamente.')}else purchases=old;
+    }catch(err){toast(err.message||'No se pudo importar el archivo.')}finally{e.target.value=''}
+  });
+  $('clearBtn').addEventListener('click',()=>{
+    if(!purchases.length){toast('No hay registros que borrar.');return}
+    if(confirm('¿Seguro que quieres borrar TODOS los registros y sus fotos? Esta acción no se puede deshacer.')){const old=purchases;purchases=[];save().then(ok=>{if(ok){render();toast('Se borraron todos los registros.')}else purchases=old;})}
+  });
+  initProducts();load();
+})();
 </script>
 </body>
 </html>
